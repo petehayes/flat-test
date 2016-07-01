@@ -1,0 +1,12 @@
+rootProject.name= 'flat-test'
+
+def projects = [
+	'as/a1',
+	'as/a2',
+	'bs/b1',
+	'bs/b2'
+]
+
+// Include each project and set name with a dash instead of slash to fix Eclipse issue
+projects.each { p -> includeFlat p; project(":${p}").name = p.substring(p.lastIndexOf('/') + 1) }
+
